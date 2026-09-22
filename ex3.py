@@ -2,26 +2,27 @@ import os
 os.system('cls')
 
 def calcular_frete(distancia: float, peso: float) -> tuple[str, float, float]:
-    peso_adicional = 0
-    if peso_adicional > 10:
-        frete = 35.00
+    if distancia > 200:
+        status = "Frete Expresso"
     else:
-        frete = 0
+        status = "Frete Padrão"
 
-    status_frete = "frete padrão" or "frete expresso"
+    if peso > 10:
+        adicional_peso = 35.00
+    else:
+        adicional_peso = 0.00
 
-    valor_total = frete + peso_adicional
-
-    return peso_adicional, frete, valor_total
+    valor_total = (distancia * 2.50) + peso
+    return status, adicional_peso, valor_total
 
 print('--- SOLICITANDO DADOS ---')
 
 distancia = float(input('Digite a Distancia em Km: '))
 peso = float(input('Digite o peso em KG: '))
 
-distancia_final, peso_final, total = calcular_frete(distancia, peso)
+status_frete, taxa_peso, total_frete = calcular_frete(distancia, peso)
 
-print('--- MOSTRANDO DADOS ---')
-print(f'A distancia final é: {distancia_final}')
-print(f'O peso final é: {peso_final}')
-print(f'O total é: {total}')
+print('\n--- MOSTRANDO DADOS ---')
+print(f'Status do frete: {status_frete}')
+print(f'Adicional de peso: R$ {taxa_peso:.2f}')
+print(f'Total a pagar: R$ {total_frete:.2f}')
