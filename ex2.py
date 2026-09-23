@@ -1,8 +1,6 @@
 import os
 os.system('cls')
 
-
-
 def calcular_comissao(total_vendas: float) -> tuple[float, float, float]:
     if total_vendas <= 10000.00:
         comissao = total_vendas * 0.05
