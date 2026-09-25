@@ -8,7 +8,7 @@ def calcular_envio(peso: float, distancia: float,) -> tuple[str, float, float]:
     if peso <= 5.00:
         preco = 15.00
     else:
-        preco = 15.00 + ((peso - 5) * 4.00)
+        preco = 15.00 + ((peso - 5.00) * 4.00)
     
     # Logica da distancia
     if distancia <= 100.00:
@@ -48,10 +48,10 @@ while True:
         break
     except ValueError:
             print('[ERRO], Digite apenas valores numericos validos\n')
-                
+           
+# Processamento e saída     
 categoria, seguro, custo_total = calcular_envio(peso, distancia)
-                            
-# Saida
+
 print('\n--- EXIBINDO DADOS DO ENVIO ---')
 print(f'Categoria: {categoria}')
 print(f'Custo do seguro: R$ {seguro:.2f}')
