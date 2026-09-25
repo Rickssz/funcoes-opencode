@@ -19,14 +19,19 @@ def calcular_fatura(dias: int, km: float, categoria: str) -> tuple[str, float, f
         
     return nome_cat, custo_km, valor_total
 
-print('--- SOLICITANDO DADOS ---')
-modelo = input(('Digite o modelo do carro: '))
-km = float(input('Digite os km: '))
-dias = int(input('Digite os dias: '))
+print('--- ALUGUEL DE VEÍCULOS ---')
 
-carro, distancia, total = calcular_fatura(modelo, km, dias)
+try:
+    dias = int(input('Quantidade de dias de alugeu: '))
+    km = float(input('Quantidade de KM rodados: '))
+    categoria = input('Categoria (economico/suv): ').strip().lower()
+    
+    cat_nome, valor_km, total = calcular_fatura(dias, km, categoria)
 
-print('\n--- EXIBINDO DADOS ---')
-print(f'O modelo é: {carro}')
-print(f'Distancia: {distancia:.2f} KM')
-print(f'Dias: {total}')
+    print('\n--- RESUMO DA FATURA ---')
+    print(f'Categoria: {cat_nome}')
+    print(f'Custo por KM: R$ {valor_km:.2f}')
+    print(f'Total a pagar: R$ {total:.2f}')
+
+except ValueError:
+    print('\n[ERRO] Por favor, digite apenas valores numéricos válidos!')
