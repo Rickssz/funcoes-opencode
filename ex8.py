@@ -37,8 +37,7 @@ while True:
     except ValueError:
             print('[ERRO], Digite apenas valores numericos validos\n')
         
-        
-    # loop 2: Validação da Distância
+# loop 2: Validação da Distância
 while True:
     try:
         distancia = float(input('Distancia percorrida: '))
